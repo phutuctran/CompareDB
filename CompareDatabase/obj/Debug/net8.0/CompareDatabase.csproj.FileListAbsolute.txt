@@ -52,3 +52,4 @@ D:\CompareDatabase\CompareDatabase\obj\Debug\net8.0\refint\CompareDatabase.dll
 D:\CompareDatabase\CompareDatabase\obj\Debug\net8.0\CompareDatabase.pdb
 D:\CompareDatabase\CompareDatabase\obj\Debug\net8.0\CompareDatabase.genruntimeconfig.cache
 D:\CompareDatabase\CompareDatabase\obj\Debug\net8.0\ref\CompareDatabase.dll
+D:\CompareDatabase\CompareDatabase\obj\Debug\net8.0\CompareDatabase.sourcelink.json

@@ -1,0 +1,17 @@
+Connected to the database WatchStore2.
+Connected to the database WatchStore.
+Column (SecretCode) in [Order] was deleted!
+Column (CreatedBy) in [Review] in Database WatchStore2 was created! : varchar 32, isNullable: False, isPK: False
+Column (UserDef1) in [Review] in Database WatchStore2 was created! : nvarchar 255, isNullable: True, isPK: False
+Column (UserDef2) in [Review] in Database WatchStore2 was created! : nvarchar 255, isNullable: True, isPK: False
+Column (UserDef3) in [Review] in Database WatchStore2 was created! : float , isNullable: True, isPK: False
+Column (UserDef4) in [Review] in Database WatchStore2 was created! : bit , isNullable: True, isPK: False
+Column (UserDef5) in [Review] in Database WatchStore2 was created! : datetime , isNullable: True, isPK: False
+Column (CustomerName) in [Review] was deleted!
+Table [test] in Database WatchStore2 was created!
+Column (dsfsd) in [test] in Database WatchStore2 was created! : smalldatetime , isNullable: True, isPK: False
+Column (dsfsdfsdvxc) in [test] in Database WatchStore2 was created! : bit , isNullable: True, isPK: False
+Column (haha) in [test] in Database WatchStore2 was created! : nchar 10, isNullable: False, isPK: True
+Column (hihi) in [test] in Database WatchStore2 was created! : nvarchar -1, isNullable: True, isPK: False
+Column (sdfsd) in [test] in Database WatchStore2 was created! : real , isNullable: True, isPK: False
+Table [test2] was deleted!

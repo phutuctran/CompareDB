@@ -1,0 +1,7 @@
+USE WatchStore2
+ALTER TABLE Order ADD SecretCode bigint
+ALTER TABLE Review ADD CustomerName nvarchar(50)
+CREATE TABLE test2
+ALTER TABLE test2 ADD haha nchar(10) not null
+ALTER TABLE test2 ADD CONSTRAINT PK_1ca410f3-d18c-4b6b-8036-ae5769cf6f70 PRIMARY KEY (haha)
+ALTER TABLE test2 ADD hii nchar(10) not null

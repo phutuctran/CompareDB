@@ -1,0 +1,14 @@
+Connected to the database WatchStore.
+Connected to the database WatchStore2.
+Column (SecretCode) in [Order] in Database WatchStore was created! : bigint , isNullable: True, isPK: False
+Column (CustomerName) in [Review] in Database WatchStore was created! : nvarchar 50, isNullable: True, isPK: False
+Column (CreatedBy) in [Review] was deleted!
+Column (UserDef1) in [Review] was deleted!
+Column (UserDef2) in [Review] was deleted!
+Column (UserDef3) in [Review] was deleted!
+Column (UserDef4) in [Review] was deleted!
+Column (UserDef5) in [Review] was deleted!
+Table [test2] in Database WatchStore was created!
+Column (haha) in [test2] in Database WatchStore was created! : nchar 10, isNullable: False, isPK: True
+Column (hii) in [test2] in Database WatchStore was created! : nchar 10, isNullable: False, isPK: False
+Table [test] was deleted!
