@@ -108,9 +108,9 @@ namespace CompareDatabase
 
         public DatabaseCompare(string _connectionString1, string _connectionString2)
         {
-            string logFile = ".\\Logs\\" + DateTime.Now.ToString().Replace('/', '_').Replace(':', '_') + ".txt";
-            string settingFile1 = ".\\AdjustDB\\SettingFileDB1.txt";
-            string settingFile2 = ".\\AdjustDB\\SettingFileDB2.txt";
+            string logFile = "C:\\PUBLISH\\compareDatabase\\Logs\\" + DateTime.Now.ToString().Replace('/', '_').Replace(':', '_') + ".txt";
+            string settingFile1 = "C:\\PUBLISH\\compareDatabase\\AdjustDB\\SettingFileDB1.txt";
+            string settingFile2 = "C:\\PUBLISH\\compareDatabase\\AdjustDB\\SettingFileDB2.txt";
             logger = new Logger(logFile);
             setFileDB1 = new Logger(settingFile1);
             setFileDB2 = new Logger(settingFile2);
@@ -219,17 +219,20 @@ namespace CompareDatabase
                     //DB1 có nhưng DB2 không có
                     //Tạo mới bảng này ở DB2
                     //setFileDB2.Log($"C [{name1}]");
-                    var script = $"CREATE TABLE {name1}";
+                    var script = $"CREATE TABLE [{name1}] ( tmp int);";
                     setFileDB2.Log(script, $"{nameDB1}");
+                    //List<ColumnInfo> columnInfos = new List<ColumnInfo>();
 
                     foreach (string column in table.Item2)
                     {
                         var columnInfo = GetDataTypeColumn(connection1, name1, column);
                         logger.Log($"Column ({column}) in [{name1}] in Database {nameDB1} was created! : {columnInfo.dataType} {columnInfo.charMaxLength}, isNullable: {columnInfo.isNullable}, isPK: {columnInfo.isPK}", "log");
-
+                        //columnInfos.Add(columnInfo);
                         script = AddColumn(name1, columnInfo);
                         setFileDB2.Log(script, $"{nameDB1}");
                     }
+                    script = $"ALTER TABLE [{name1}] DROP COLUMN tmp;";
+                    setFileDB2.Log(script, $"{nameDB1}");
                 }
                 else
                 {
@@ -271,11 +274,11 @@ namespace CompareDatabase
         }
         private string AddColumn(string tabelName, ColumnInfo columnInfo)
         {
-            string script = $"ALTER TABLE {tabelName} ADD {columnInfo.name} {columnInfo.dataType}" + (columnInfo.charMaxLength != null ? string.Format("(" + (columnInfo.charMaxLength == -1 ? "MAX" : columnInfo.charMaxLength) + ")") : "") + (columnInfo.isNullable == true ? "" : " not null");
+            string script = $"ALTER TABLE [{tabelName}] ADD {columnInfo.name} {columnInfo.dataType}" + (columnInfo.charMaxLength != null ? string.Format("(" + (columnInfo.charMaxLength == -1 ? "MAX" : columnInfo.charMaxLength) + ")") : "") + (columnInfo.isNullable == true ? "" : " not null") + ";";
             
             if (columnInfo.isPK == true) 
             {
-               script += $"\nALTER TABLE {tabelName} ADD CONSTRAINT PK_{Guid.NewGuid()} PRIMARY KEY ({columnInfo.name})";
+               script += $"\nALTER TABLE [{tabelName}] ADD CONSTRAINT PK_{Guid.NewGuid().ToString().Replace("-", "")} PRIMARY KEY ({columnInfo.name});";
             }
             return script;
         }
